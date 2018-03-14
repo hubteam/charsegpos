@@ -25,7 +25,7 @@ public class WordSegAndPosSampleEventStream extends AbstractEventStream<WordSegA
 	 * @param samples 样本流
 	 * @param generator 上下文产生器
 	 */
-	public WordSegAndPosSampleEventStream(ObjectStream<WordSegAndPosSample> samples,WordSegAndPosContextGenerator generator) {
+	public WordSegAndPosSampleEventStream(ObjectStream<WordSegAndPosSample> samples,WordSegAndPosContextGenerator generator){
 		super(samples);
 		this.generator = generator;
 	}
@@ -36,6 +36,7 @@ public class WordSegAndPosSampleEventStream extends AbstractEventStream<WordSegA
 	 */
 	@Override
 	protected Iterator<Event> createEvents(WordSegAndPosSample sample) {
+		
 		String[] words = sample.getWords();
 		String[] poses = sample.getPoses();
 		String[] characters = sample.getCharacters();
@@ -57,9 +58,7 @@ public class WordSegAndPosSampleEventStream extends AbstractEventStream<WordSegA
 	private List<Event> generateEvents(String[] characters, String[] tags, String[] words, String[] poses,
 			String[][] ac) {
 		List<Event> events = new ArrayList<Event>(characters.length);
-//		for (int i = 0; i < words.length; i++) {
-//			System.out.print(i+" "+words[i]);
-//		}
+
 		for (int i = 0; i < characters.length; i++) {
 			int record = -1;
 			int len = 0;
@@ -71,8 +70,6 @@ public class WordSegAndPosSampleEventStream extends AbstractEventStream<WordSegA
 					break;
 				}
 			}
-//			System.out.print(characters[i]+" "+record);
-//			System.out.println();
 			//产生事件的部分
 			String[] context = generator.getContext(i, record, characters, tags, words, poses, ac);
 

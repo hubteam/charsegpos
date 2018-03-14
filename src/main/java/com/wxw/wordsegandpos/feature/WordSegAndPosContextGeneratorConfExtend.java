@@ -3,12 +3,10 @@ package com.wxw.wordsegandpos.feature;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Properties;
 import java.util.Set;
 
-import com.wxw.wordsegandpos.evaluate.WordSegAndPosMeasure;
 import com.wxw.wordsegandpos.loader.ReadAdditionalDitionary;
 
 public class WordSegAndPosContextGeneratorConfExtend implements WordSegAndPosContextGenerator{
@@ -40,7 +38,6 @@ public class WordSegAndPosContextGeneratorConfExtend implements WordSegAndPosCon
     private boolean c_2c0set;
     private boolean c_1c0c1set;
     
-    private WordSegAndPosMeasure measure;
     Set<String> dictionalWords = ReadAdditionalDitionary.getWords("E:\\pku_training_maxentModelC.txt", "gbk");
 	/**
 	 * 无参构造，加载feature配置文件

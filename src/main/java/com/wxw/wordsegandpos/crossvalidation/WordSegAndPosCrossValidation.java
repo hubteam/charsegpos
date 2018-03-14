@@ -14,7 +14,6 @@ import com.wxw.wordsegandpos.samplestream.WordSegAndPosSample;
 
 import opennlp.tools.util.ObjectStream;
 import opennlp.tools.util.TrainingParameters;
-import opennlp.tools.util.eval.CrossValidationPartitioner;
 
 /**
  * 交叉验证
@@ -48,12 +47,12 @@ public class WordSegAndPosCrossValidation {
 	 */
 	public void evaluate(ObjectStream<WordSegAndPosSample> sample, int nFolds,
 			WordSegAndPosContextGenerator contextGenerator) throws IOException{
-		CrossValidationPartitioner<WordSegAndPosSample> partitioner = new CrossValidationPartitioner<WordSegAndPosSample>(sample, nFolds);
+		CrossValidationPartitionerBy52<WordSegAndPosSample> partitioner = new CrossValidationPartitionerBy52<WordSegAndPosSample>(sample, nFolds);
 		int run = 1;
 		//小于折数的时候
 		while(partitioner.hasNext()){
 			System.out.println("Run"+run+"...");
-			CrossValidationPartitioner.TrainingSampleStream<WordSegAndPosSample> trainingSampleStream = partitioner.next();
+			CrossValidationPartitionerBy52.TrainingSampleStream<WordSegAndPosSample> trainingSampleStream = partitioner.next();
 			//生成词语-词性词典
 			HashMap<String,List<String>> dict = WordSegAndPosME.bulidDictionary(trainingSampleStream);
 			//训练模型

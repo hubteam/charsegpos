@@ -11,7 +11,6 @@ public class WordSegAndPosParseContext {
 
 	private String sentence;
 	private WordSegAndPosParseStrategy strage;
-	private WordSegAndPosParseNews parse;
 	
 	/**
 	 * 构造函数

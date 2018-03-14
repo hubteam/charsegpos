@@ -11,7 +11,6 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 
@@ -51,9 +50,8 @@ public class WordSegAndPosME implements WordSegAndPos{
 	private int size;
 	private Sequence bestSequence;
 	private SequenceClassificationModel<String> model;
+	@SuppressWarnings("unused")
 	private WordSegAndPosModel modelPackage;
-	private List<String> characters = new ArrayList<String>();
-	private List<String> tags = new ArrayList<String>();
 
     private SequenceValidator<String> sequenceValidator;
 	

@@ -63,7 +63,7 @@ public class WordSegAndPosParseNews implements WordSegAndPosParseStrategy{
 	            }	
 			}
 		}
-		return new WordSegAndPosSample(characters,tags,words,poses);
+		return new WordSegAndPosSample(characters, tags, words, poses);
 	}
 
 }

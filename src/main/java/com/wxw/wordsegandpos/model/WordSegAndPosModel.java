@@ -78,6 +78,7 @@ public class WordSegAndPosModel extends BaseModel{
         }
 	}
 	
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public SequenceClassificationModel<String> getWordSegAndPosSequenceModel() {
 
         Properties manifest = (Properties) artifactMap.get(MANIFEST_ENTRY);

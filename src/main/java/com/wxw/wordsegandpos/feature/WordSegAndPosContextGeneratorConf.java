@@ -3,12 +3,10 @@ package com.wxw.wordsegandpos.feature;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Properties;
 import java.util.Set;
 
-import com.wxw.wordsegandpos.evaluate.WordSegAndPosMeasure;
 import com.wxw.wordsegandpos.loader.ReadAdditionalDitionary;
 
 public class WordSegAndPosContextGeneratorConf implements WordSegAndPosContextGenerator{
@@ -31,7 +29,7 @@ public class WordSegAndPosContextGeneratorConf implements WordSegAndPosContextGe
 //    private boolean Pc_2w0Pc_1w0Set;
     private boolean Bc_1w0Pc_1w0Set;
     private boolean Bc_2w0Pc_2w0Bc_1w0Pc_1w0Set;
-    private WordSegAndPosMeasure measure;
+
     Set<String> dictionalWords = ReadAdditionalDitionary.getWords("E:\\pku_training_maxentModelC.txt", "gbk");
 	/**
 	 * 无参构造，加载feature配置文件
@@ -129,8 +127,8 @@ public class WordSegAndPosContextGeneratorConf implements WordSegAndPosContextGe
 	 * @return
 	 */
 	private String[] getContext(int i, int j, String[] characters, String[] tags, String[] words, String[] poses) {
-		String c1, c2, c3, c0, c_1, c_2, c_3;
-        c1 = c2 = c3 = c0 = c_1 = c_2 = c_3 = null;
+		String c1, c2,  c0, c_1, c_2;
+        c1 = c2 = c0 = c_1 = c_2 = null;
         String TC_1, TC_2, TC0, TC1, TC2;
         TC_1 = TC_2 = TC0 = TC1 = TC2 = null;
         String w0,w_1,w_2,p_1,p_2;
@@ -340,15 +338,13 @@ public class WordSegAndPosContextGeneratorConf implements WordSegAndPosContextGe
 	 * @param tags 字符的标记序列
 	 */
 	private String[] getContext(int i, String[] characters, String[] tags) {
-		//HashMap<String,List<String>> dictionary = measure.getDictionary();
-//		System.out.println(i);
-		
-		String c1, c2, c3, c0, c_1, c_2, c_3;
-        c1 = c2 = c3 = c0 = c_1 = c_2 = c_3 = null;
+
+		String c1, c2,  c0, c_1, c_2;
+        c1 = c2  = c0 = c_1 = c_2  = null;
         String TC_1, TC_2, TC0, TC1, TC2;
         TC_1 = TC_2 = TC0 = TC1 = TC2 = null;
-        String w0,w_1,w_2,p_1,p_2;
-        w0 = w_1 = w_2 = p_1 = p_2 = null;
+        String w0;
+        w0 = null;
         c0 = characters[i];
         TC0 = FeaturesTools.featureType(c0);
         if (characters.length > i + 1)

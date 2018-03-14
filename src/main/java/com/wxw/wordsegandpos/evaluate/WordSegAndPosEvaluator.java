@@ -58,7 +58,6 @@ public class WordSegAndPosEvaluator extends Evaluator<WordSegAndPosSample>{
 		String[] wordsRef = reference.getWords();
 		String[] posesRef = reference.getPoses();
 		String[] charactersRef = reference.getCharacters();
-		String[] tagsRef = reference.getTags();
 		String[][] acRef = reference.getAditionalContext();
 
 		//此时读取的生语料，没有分词和词性标注

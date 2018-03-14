@@ -86,7 +86,7 @@ public class WordSegAndPosRun {
         WordSegAndPosCrossValidation crossValidator = new WordSegAndPosCrossValidation("zh", params);
 
         System.out.println(contextGen);
-        crossValidator.evaluate(sampleStream, 10, contextGen);
+        crossValidator.evaluate(sampleStream, 5, contextGen);
 
 	}
 	/**
